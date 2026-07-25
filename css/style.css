@@ -17,31 +17,28 @@ body {
   left: 0;
   width: 100%;
   background-color: #139a9d;
-  
-  /* Kept the curves but reduced the vertical height */
-  border-bottom-left-radius: 50px; /* Slightly reduced curve so it doesn't look stretched on a thin header */
+  border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
   
   display: flex;
   justify-content: space-between; 
   align-items: center;
   
-  /* REDUCED PADDING: Changed from 24px to 12px on the top and bottom */
-  padding: 12px 60px; 
+  /* Use fluid padding so the edges shrink gently on tight viewports */
+  padding: 10px clamp(20px, 4vw, 60px); 
   box-sizing: border-box;
   z-index: 1000;
 }
 
-/* 1. MAKE THE LOGO WIDER */
+/* Responsive Logo configuration that stops boxing text out */
 .site-header .logo img {
-  /* This significantly increases the horizontal space the logo takes up */
-  width: clamp(220px, 18vw, 320px); 
-  
-  /* Setting height to auto allows the image to scale naturally without squishing */
+  /* Reduced the aggressive minimum width constraint from 280px down to 180px */
+  width: clamp(180px, 20vw, 340px); 
+  max-height: 44px; 
   height: auto; 
-  
   object-fit: contain; 
   display: block;
+  flex-shrink: 0; /* Prevents the logo image container from crushing under layout load */
 }
 
 .header-inner {
@@ -62,13 +59,17 @@ body {
 .main-nav {
   display: flex;
   align-items: center;
+  /* Fluid separation gap before the globe icon container */
+  gap: clamp(15px, 2.5vw, 30px); 
 }
 
 .main-nav ul {
   display: flex;
   align-items: center;
-  /* Massive structural gap layout to fill wide-screen real estate */
-  gap: clamp(24px, 2.8vw, 42px); 
+  
+  /* Crucial: Uses clamp to allow the spacing between links to contract 
+     from 32px down to 12px depending on layout density */
+  gap: clamp(12px, 2vw, 32px); 
   list-style: none;
   margin: 0;
   padding: 0;
@@ -78,13 +79,14 @@ body {
   color: #ffffff;
   text-decoration: none;
   font-family: 'Century Gothic', sans-serif;
-  font-weight: 700; /* Crisp Bold presentation */
-  font-size: clamp(16px, 1.2vw, 19px); /* Scaled up text size */
-  display: flex;
+  font-weight: 700;
+  
+  /* Fluid text sizing: scales down dynamically so it never overflows lines at 100% zoom */
+  font-size: clamp(13px, 1.1vw, 17px); 
+  display: inline-flex;
   align-items: center;
-  gap: 8px; /* Balanced arrow space */
-  white-space: nowrap; /* Forces links to stay perfectly in one line */
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  gap: 6px; 
+  white-space: nowrap; 
 }
 .main-nav a:hover {
   opacity: 0.9;
