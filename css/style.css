@@ -1,0 +1,1318 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== HEADER ===== */
+/* ===== PERFECT FULL-WIDTH CURVED HEADER (SLIMMER VERSION) ===== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #139a9d;
+  
+  /* Kept the curves but reduced the vertical height */
+  border-bottom-left-radius: 50px; /* Slightly reduced curve so it doesn't look stretched on a thin header */
+  border-bottom-right-radius: 50px;
+  
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  
+  /* REDUCED PADDING: Changed from 24px to 12px on the top and bottom */
+  padding: 12px 60px; 
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+/* 1. MAKE THE LOGO WIDER */
+.site-header .logo img {
+  /* This significantly increases the horizontal space the logo takes up */
+  width: clamp(220px, 18vw, 320px); 
+  
+  /* Setting height to auto allows the image to scale naturally without squishing */
+  height: auto; 
+  
+  object-fit: contain; 
+  display: block;
+}
+
+.header-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 40px;
+}
+
+.logo img {
+  height: 58px;
+  display: block;
+}
+
+/* Main Navigation Container spanning rightward */
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.main-nav ul {
+  display: flex;
+  align-items: center;
+  /* Massive structural gap layout to fill wide-screen real estate */
+  gap: clamp(24px, 2.8vw, 42px); 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Century Gothic', sans-serif;
+  font-weight: 700; /* Crisp Bold presentation */
+  font-size: clamp(16px, 1.2vw, 19px); /* Scaled up text size */
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Balanced arrow space */
+  white-space: nowrap; /* Forces links to stay perfectly in one line */
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.main-nav a:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+/* Custom Dropdown Chevron Icon Sizing */
+.main-nav a svg, 
+.main-nav a .arrow-icon {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+/* 2. PUSH THE GLOBE ICON FURTHER AWAY */
+.globe-lang-picker {
+  width: 22px;
+  height: 22px;
+  color: #ffffff;
+  cursor: pointer;
+  
+  /* Increased from 10px to 24px to create a much clearer gap after 'Join Us' */
+  margin-left: 24px; 
+}
+.chevron {
+  width: 11px;
+  height: 7px;
+}
+
+.chevron path {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lang-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== HERO ===== */
+.hero {
+  width: 100%;
+  line-height: 0;
+  margin-top: 94px; /* Pushes the hero image down so it starts exactly where the curved header ends */
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== REUSABLE CONTAINER ===== */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ===== TRAINING SOLUTIONS SECTION ===== */
+.training-solutions {
+  padding: 80px 0;
+  background-color: #fcfcfc;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header h2 {
+  color: #139a9d;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.section-header p {
+  color: #4a4a4a;
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
+/* GRID LAYOUT */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* INDIVIDUAL CARD */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #f0f0f0;
+}
+
+/* CARD IMAGE & OVERLAPPING ICON */
+.card-image {
+  position: relative;
+  width: 100%;
+}
+
+.card-image img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.card-icon {
+  position: absolute;
+  bottom: -24px;
+  left: 20px;
+  width: 48px;
+  height: 48px;
+  background-color: #139a9d;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #ffffff;
+}
+
+.card-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* CARD TEXT CONTENT */
+.card-content {
+  padding: 35px 20px 20px 20px;
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #222222;
+  margin-bottom: 8px;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.4;
+  margin-bottom: 24px;
+}
+
+/* CARD ARROW */
+.card-arrow {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.card-arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.card:hover .card-arrow {
+  transform: translateX(4px);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1100px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ===== STATS BANNER ===== */
+.stats-banner {
+  display: flex;
+  align-items: stretch;
+  background-color: #f27c54; /* Orange background */
+  color: #ffffff;
+  min-height: 120px;
+  overflow: hidden;
+  margin-bottom: 80px; /* Space below the banner */
+}
+
+/* LEFT TEAL SHAPE */
+.stats-left {
+  background-color: #139a9d;
+  padding: 0 50px 0 40px;
+  display: flex;
+  align-items: center;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  flex-shrink: 0;
+}
+
+.stats-left h2 {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+}
+
+/* CENTER STATS GRID */
+.stats-center {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px 30px;
+  flex-wrap: wrap; 
+  gap: 20px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-icon svg {
+  width: 44px;
+  height: 44px;
+  color: #ffffff;
+}
+
+.stat-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-text .stat-num,
+.stats-right .stat-num {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.stat-text .stat-label,
+.stats-right .stat-label {
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+/* RIGHT TEAL SHAPE */
+.stats-right {
+  background-color: #139a9d;
+  padding: 0 40px 0 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: right;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  flex-shrink: 0;
+}
+
+.stats-right .stat-num {
+  font-size: 34px;
+}
+
+/* RESPONSIVE DESIGN FOR BANNER */
+@media (max-width: 1250px) {
+  .stats-banner {
+    flex-direction: column;
+  }
+  
+  .stats-left, 
+  .stats-right {
+    border-radius: 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+  }
+
+  .stats-left {
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+  }
+
+  .stats-right {
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-center {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px;
+    gap: 30px;
+  }
+}
+/* ===== TRUSTED PARTNER SECTION ===== */
+.trusted-partner {
+  padding: 80px 0;
+  background-color: #fafbfc; 
+}
+
+.partner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px; /* Slightly reduced gap */
+}
+
+/* Left Side Content */
+/* Widened slightly so "National Development" fits easily on one line */
+.partner-content {
+  flex: 1;
+  max-width: 520px; 
+}
+
+.partner-content h2 {
+  font-family: 'Century Gothic', sans-serif;
+  color: #139a9d;
+  font-size: 40px; /* Scaled down from 46px */
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0;
+  margin-bottom: 20px;
+}
+
+.partner-content p {
+  font-family: 'Century Gothic', sans-serif;
+  color: #333333; 
+  font-size: 18px; /* Scaled down from 22px */
+  font-weight: 400;
+  line-height: 1.5; 
+  letter-spacing: 0;
+  margin-bottom: 30px;
+}
+
+/* Updated Button Styling */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px; 
+  color: #139a9d;
+  border: 1px solid #139a9d;
+  padding: 10px 24px; /* Reduced padding makes the physical button smaller */
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  
+  font-family: 'Century Gothic', sans-serif;
+  font-weight: 400;
+  font-size: 20px; /* Scaled down button text */
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.btn-outline:hover {
+  background-color: #139a9d;
+  color: #ffffff;
+}
+
+/* Scaled down the SVG arrow to match the new text size */
+.btn-outline svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Right Side Visual Container */
+.partner-visual {
+  flex: 1.3; /* Gives the image side a bit more width */
+  position: relative;
+  /* Adjusted curve for the shorter height */
+  border-radius: 0 12px 12px 100px; 
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.partner-visual img {
+  width: 100%;
+  height: 340px; /* REDUCED HEIGHT (was 420px) */
+  object-fit: cover;
+  display: block;
+  object-position: center 20%; /* Keeps the focal point of the image centered */
+}
+
+/* Stats Overlay Box inside the image */
+.visual-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 240px; /* Slightly narrower */
+  background-color: rgba(122, 161, 175, 0.85); 
+  backdrop-filter: blur(4px); 
+  padding: 30px; /* Reduced padding to fit the new height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.overlay-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.overlay-stat .stat-title {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+  opacity: 0.95;
+  margin-bottom: 6px;
+}
+
+.overlay-stat .stat-number {
+  font-size: 38px; /* Slightly scaled down */
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.overlay-stat .stat-desc {
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 0.85;
+  line-height: 1.3;
+}
+
+.overlay-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  margin: 20px 0; /* Tighter margin */
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .partner-inner {
+    flex-direction: column;
+  }
+  .partner-content {
+    max-width: 100%;
+    text-align: center;
+  }
+  .partner-visual {
+    width: 100%;
+    border-radius: 12px 12px 12px 80px;
+  }
+  .visual-overlay {
+    width: 35%;
+  }
+}
+
+@media (max-width: 650px) {
+  .partner-visual {
+    flex-direction: column;
+    border-radius: 12px;
+  }
+  .visual-overlay {
+    position: static; 
+    width: 100%;
+    background-color: rgb(122, 161, 175);
+    padding: 30px;
+  }
+  .partner-visual img {
+    height: 300px;
+  }
+}
+/* ===== LOGO SHOWCASE SECTION ===== */
+.logo-showcase {
+  padding: 80px 0 100px 0;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.showcase-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.showcase-header h2 {
+  font-family: 'Century Gothic', sans-serif;
+  color: #139a9d;
+  font-weight: 700;
+  letter-spacing: 0;
+  font-size: clamp(26px, 3vw, 40px); /* Reduced further */
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.showcase-header p {
+  font-family: 'Century Gothic', sans-serif;
+  color: #000000; /* Changed to solid black */
+  font-weight: 400;
+  letter-spacing: 0;
+  font-size: clamp(14px, 1.2vw, 17px); /* Reduced further */
+  line-height: 1.5;
+}
+
+/* BIGGER MARQUEE CONTAINER */
+.logo-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.logo-track {
+  display: flex;
+  gap: 90px; /* INCREASED GAP: Gives images breathing room */
+  width: max-content;
+  animation: scrollLogos 30s linear infinite; /* Slightly slower layout pace for clarity */
+}
+
+.logo-track:hover {
+  animation-play-state: paused;
+}
+
+.logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 120px; /* INCREASED HEIGHT: Makes all logos much larger */
+}
+
+.logo-item img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logo-item img:hover {
+  transform: scale(1.05); /* Adds a subtle interactive pop when hovering */
+}
+
+/* INFINITE MARQUEE ANIMATION LOOP */
+@keyframes scrollLogos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* RESPONSIVE DESIGN ADJUSTMENTS */
+@media (max-width: 1024px) {
+  .logo-track {
+    gap: 60px;
+  }
+  .logo-item {
+    height: 90px;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo-track {
+    gap: 40px;
+  }
+  .logo-item {
+    height: 70px;
+  }
+}
+/* ===== IMPACT SECTION ===== */
+.impact-section {
+  padding: 80px 0 100px 0;
+  background-color: #ffffff;
+}
+
+.impact-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* Figma Specs: Bold 64px, Line-height 110.86px */
+.impact-header h2 {
+  font-family: 'Century Gothic', sans-serif;
+  color: #139a9d;
+  font-weight: 700;
+  font-size: clamp(32px, 4vw, 54px); /* Scaled for screens */
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+/* Figma Specs: Regular 26.22px, Line-height 31.46px */
+.impact-header p {
+  font-family: 'Century Gothic', sans-serif;
+  color: #4a4a4a;
+  font-weight: 400;
+  font-size: clamp(16px, 1.8vw, 22px);
+  line-height: 1.4;
+}
+
+/* CARDS GRID */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* INDIVIDUAL CARD */
+.impact-card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.impact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.impact-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* CARD CONTENT */
+.impact-content {
+  padding: 20px; /* Reduced from 24px for a cleaner card footprint */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Fix heading size to prevent unwanted line-wrapping */
+.impact-content h3 {
+  font-family: 'Century Gothic', sans-serif;
+  color: #139a9d;
+  font-weight: 700;
+  font-size: 15px; /* Reduced from 18px so your exact <br> breaks work perfectly */
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+/* Change paragraph text to solid black */
+.impact-content p {
+  font-family: 'Century Gothic', sans-serif;
+  color: #000000; /* Changed to solid black */
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 24px;
+  flex-grow: 1; 
+}
+
+/* Figma Specs: Bold 20px, Line-height 28.66px */
+.read-more {
+  font-family: 'Century Gothic', sans-serif;
+  color: #139a9d;
+  font-weight: 700;
+  font-size: 18px; /* Adjusted from 20px to look balanced */
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s ease;
+}
+
+.read-more:hover {
+  color: #0d7577; /* Slightly darker teal on hover */
+}
+
+/* RESPONSIVE LAYOUT */
+@media (max-width: 1200px) {
+  .impact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ===== CAROUSEL PAGINATION DOTS ===== */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px; /* Distance between dots */
+  margin-top: 40px; /* Space between the cards and the dots */
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  background-color: #cccccc; /* Light grey for inactive dots */
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Active Teal Dot */
+.dot.active {
+  background-color: #139a9d; /* Your brand teal color */
+}
+
+.dot:hover {
+  background-color: #aaaaaa;
+}
+
+.dot.active:hover {
+  background-color: #139a9d; /* Keep active dot fixed color */
+}
+/* ===== VIDEO BANNER SECTION ===== */
+.video-banner {
+  width: 100%;
+  margin-bottom: 80px; /* Space before the next section */
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  
+  /* Taller rectangle: brings back much more of the top and bottom of the image */
+  aspect-ratio: 16 / 9; 
+  
+  /* Stops the banner from growing infinitely huge on ultra-wide desktop monitors */
+  max-width: 1920px; 
+  margin: 0 auto;
+  
+  overflow: hidden;
+  display: flex;
+}
+
+.video-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: center; /* Set perfectly to center to show equal parts sky and panels */
+  display: block;
+}
+
+/* PLAY BUTTON OVERLAY (Ellipse 10) */
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* This guarantees perfect vertical and horizontal centering */
+  
+  width: clamp(100px, 12vw, 160px); /* Responsive sizing: scales smoothly between mobile and desktop */
+  height: clamp(100px, 12vw, 160px);
+  
+  background-color: rgba(108, 178, 174, 0.95); /* The soft teal from your design */
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.play-button:hover {
+  transform: translate(-50%, -50%) scale(1.05); /* Slight pop effect when hovering */
+  background-color: rgba(108, 178, 174, 1);
+}
+
+/* PLAY ICON (Polygon 3) */
+.play-button svg {
+  width: clamp(28px, 4vw, 42px);
+  height: clamp(28px, 4vw, 42px);
+  fill: #ffffff;
+  margin-left: 6px; /* Optical centering (play triangles look off-center without a slight left margin) */
+}
+
+/* RESPONSIVE LAYOUT */
+@media (max-width: 1024px) {
+  .video-wrapper {
+    height: 450px; /* Shorter banner on tablets */
+  }
+}
+
+@media (max-width: 650px) {
+  .video-wrapper {
+    height: 350px; /* Shorter banner on phones */
+  }
+}
+/* ===== FIGMA PICTURE OVERLAY FOOTER ===== */
+/* ===== FIGMA PICTURE OVERLAY FOOTER ===== */
+.image-footer {
+  position: relative;
+  width: 100%;
+  display: block;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.footer-bg-graphic {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Master coordinate layer spanning over the image asset */
+.interactive-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  line-height: normal; 
+}
+
+/* --- OVERLAY ZONE: NEWSLETTER FORM --- */
+.overlay-form-zone {
+  position: absolute;
+  left: 1.6%; 
+  bottom: 12.5%;
+  width: 22.8%;
+  height: 13.5%;
+}
+
+.hidden-newsletter {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center; /* Aligns typing alignment vertically right in the center */
+}
+
+/* Makes the actual browser input match the visual white box behind it */
+.hidden-newsletter input {
+  flex: 1;
+  height: 100%;
+  background: transparent; /* Seamlessly shows the white field baked into your photo */
+  border: none;
+  outline: none;
+  padding: 0 16px;
+  
+  /* Text Properties */
+  font-family: 'Century Gothic', sans-serif;
+  font-size: clamp(12px, 1.1vw, 16px);
+  color: #000000;
+  box-sizing: border-box;
+}
+
+/* Invisible overlay directly catching clicks over the orange button graphic */
+.hidden-newsletter button {
+  width: 31%; /* Fits perfectly over the visual 'Confirm' width fraction */
+  height: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-indent: -9999px; /* Hides raw HTML text since the word 'Confirm' is inside the graphic asset */
+}
+
+
+/* --- OVERLAY ZONE: SOCIAL MEDIA LINKS --- */
+.overlay-socials-zone {
+  position: absolute;
+  right: 1.6%;
+  top: 13%;
+  width: 13.2%; /* Spans across all icon tracks cleanly */
+  height: 30%;
+  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+  grid-template-rows: repeat(2, 1fr);    /* 2 Rows */
+  align-items: center;
+  justify-items: center;
+}
+
+/* Invisible click regions mapped accurately over each individual icon asset */
+.social-anchor {
+  display: block;
+  width: 40px;  /* Fixed box size matching the individual logo sizes */
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+/* Visual cue for visitors on hover: gives a subtle glassy glow over the logo image underneath */
+.social-anchor:hover {
+  background-color: rgba(255, 255, 255, 0.15); 
+}
+/* ===== HEADER ANIMATIONS ===== */
+
+/* 1. Header Entrance Animation */
+@keyframes slideDownFade {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.site-header {
+  /* Triggers the entrance animation as soon as the page loads */
+  animation: slideDownFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* 2. Sleek Sliding Underline for Nav Links */
+.main-nav a {
+  position: relative;
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 2px;
+}
+
+.main-nav a:hover::after {
+  width: 100%; /* Line grows from left to right on hover */
+}
+
+/* 3. Subtle Logo & Globe Reactions */
+.site-header .logo img {
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.site-header .logo img:hover {
+  transform: scale(1.02); /* Slight pop */
+  filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.15)); /* Soft glow */
+}
+
+.globe-lang-picker {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.globe-lang-picker:hover {
+  transform: rotate(15deg) scale(1.15); /* Friendly spin and pop */
+} 
+/* ===== FOOTER ANIMATIONS ===== */
+
+/* 1. Bouncy Social Media Icons */
+.social-anchor {
+  /* Uses a cubic-bezier curve to give it a fun, elastic "bounce" effect */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+.social-anchor:hover {
+  /* Pops the invisible button up and makes it slightly larger */
+  transform: translateY(-6px) scale(1.15); 
+  
+  /* Creates a soft, glassy spotlight over the logo underneath */
+  background-color: rgba(255, 255, 255, 0.25); 
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. Newsletter Input Focus Effect */
+.hidden-newsletter input {
+  transition: background-color 0.3s ease;
+}
+
+.hidden-newsletter input:focus {
+  /* When the user clicks to type, slightly darkens the background so they know it's active */
+  background-color: rgba(0, 0, 0, 0.03); 
+}
+
+/* 3. The "Confirm" Button Hover */
+.overlay-form-zone {
+  transition: transform 0.2s ease;
+}
+
+.overlay-form-zone:hover {
+  /* The whole form slightly lifts up when hovered */
+  transform: translateY(-2px); 
+}
+/* ===== GLOBAL ANIMATIONS ===== */
+html {
+  scroll-behavior: smooth;
+}
+/* ===== HERO SECTION ANIMATIONS ===== */
+
+/* The Keyframe instructions for a gentle upward fade */
+@keyframes slideUpFade {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Apply this to your Hero text elements */
+.hero-title {
+  animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  /* Slight delay so it happens right after the header slides down */
+  animation-delay: 0.2s; 
+  opacity: 0; /* Keeps it hidden until the animation starts */
+}
+
+.hero-subtitle {
+  animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+.hero-buttons {
+  animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+}
+
+/* Hero Button Hover Effects */
+.btn-primary, .btn-secondary {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+  transform: translateY(-4px); /* Button lifts up */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Casts a wider shadow */
+}
+/* ===== IMPACT CARDS ANIMATIONS ===== */
+
+/* The Card Itself */
+.impact-card {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.4s ease;
+  overflow: hidden; /* Keeps the zooming image inside the rounded corners */
+}
+
+.impact-card:hover {
+  transform: translateY(-10px); /* Lifts the card completely off the page */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12); /* Deep, soft shadow */
+}
+
+/* The Image inside the Card */
+.impact-card img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.impact-card:hover img {
+  transform: scale(1.08); /* Slow, premium zoom effect when hovering the card */
+}
+
+/* "Read More" Link Hover */
+.read-more {
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.read-more::after {
+  content: '→'; /* Adds an arrow on hover */
+  position: absolute;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  margin-left: 8px;
+}
+
+.impact-card:hover .read-more::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* ===== VIDEO BANNER ANIMATIONS ===== */
+
+/* Continuous subtle pulse */
+@keyframes breathingPulse {
+  0% { box-shadow: 0 0 0 0 rgba(19, 154, 157, 0.4); }
+  70% { box-shadow: 0 0 0 30px rgba(19, 154, 157, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(19, 154, 157, 0); }
+}
+
+.play-button {
+  /* Runs the pulse forever */
+  animation: breathingPulse 3s infinite; 
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.play-button:hover {
+  animation: none; /* Stops the breathing when hovered */
+  transform: translate(-50%, -50%) scale(1.15); /* Makes the button pop larger */
+  background-color: #f26d4b; /* Optional: Change to your coral color on hover for a striking effect! */
+}
+@keyframes slowDrift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Apply this to your footer-right if you want the bubbles to slowly drift */
+.footer-right {
+  animation: slowDrift 30s ease-in-out infinite;
+}
+/* ===== ADVANCED SCROLL-REVEAL SYSTEM ===== */
+
+/* Define the master scroll animation state */
+@keyframes scrollRevealUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Apply this class to any section or row you want to fade-in on scroll 
+   (e.g., <div class="impact-grid scroll-reveal">) */
+.scroll-reveal {
+  opacity: 0;
+  /* Looks at the browser window to trigger the animation naturally as the user scrolls */
+  animation: scrollRevealUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-timeline: view();
+  animation-range: entry 10% cover 40%;
+}
+/* ===== STAGGERED GRID MOTION ===== */
+
+/* Card 1 loads instantly */
+.impact-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+/* Card 2 waits a tiny fraction */
+.impact-card:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+/* Card 3 waits a bit longer */
+.impact-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Card 4 (if any) */
+.impact-card:nth-child(4) {
+  animation-delay: 0.45s;
+}
+/* ===== DYNAMIC CAROUSEL DOT MOTION ===== */
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  /* Smooth transition for width change */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+/* Active dot expands horizontally into a pill shape */
+.dot.active {
+  width: 28px;
+  border-radius: 6px;
+  background-color: #139a9d;
+  box-shadow: 0 0 10px rgba(19, 154, 157, 0.5);
+}
+/* ===== MAGNETIC LINKS ===== */
+.link-group li a, .main-nav a {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+              color 0.3s ease;
+}
+
+.link-group li a:hover {
+  color: #f26d4b; /* Changes to your accent coral color */
+  transform: translateX(6px); /* Gently slides right */
+}
+/* ===== RADAR MAP PING ===== */
+.contact-col {
+  position: relative;
+}
+
+/* Creates a shining light sweep across your map image every few seconds */
+@keyframes glassShine {
+  0% { left: -100%; }
+  50%, 100% { left: 100%; }
+}
+
+.footer-map-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.footer-map-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    rgba(255,255,255,0) 0%, 
+    rgba(255,255,255,0.25) 50%, 
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: glassShine 4s infinite ease-in-out;
+}
